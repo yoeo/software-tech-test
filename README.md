@@ -8,19 +8,19 @@ can build quality software to solve business problems.
 > Disclaimer: this is a toy problem not an actual project :-)
 
 Artists who publish their music on our music streaming platform
-want to know and reach to their fans.
+want to know and reach out to their fans.
 We need to provide tools to help them connect to their fan base.
 
 The tools to develop:
 1. **Fanbase**: a web API that provide aggregated information
-  about the fanbase of an artist.
+  about the fan base of an artist. A fan base being a group of users who are fan of an artist.
 2. **TopFans**: a script that displays the artist top fans information,
   so the artist can send them VIP concert tickets and other goodies.
 
 For legal reasons:
 1. Users who do not consent to tracking are excluded from the result produced
   by Fanbase and TopFans tools. See the `consent` field in the database.
-2. Minor (underage) users information is not displayed by TopFans.
+2. Underage users (<18 years old) information is not displayed by TopFans.
 
 ### Technical specifications
 
@@ -55,7 +55,7 @@ For legal reasons:
 
   |Field|Type|Description|
   |-----|----|-----------|
-  |success|`bool`|the artist have at least one fan identified fan|
+  |success|`bool`|the artist have at least one identified fan|
   |artist_id|`int`|ID of the artist, provided by the HTTP request|
   |total_fans|`int`|size of the artist fan base|
   |fans_median_age|`int`|median age of the artist fans|
@@ -97,19 +97,20 @@ For legal reasons:
 
   |Field|Type|Description|
   |-----|----|-----------|
-  |rank|`int`|rank of the fan, the top fan have the rank = `1`|
   |artist_id|`int`|ID of the artist, provided as input parameter|
   |user_id|`int`|ID of the user|
   |country|`string`|user's country|
-  |score|`float`|from `0` = not fan of the artist to `1` = die-hard fan|
+  |score|`float`|from `0` = not fan of the artist, to `1` = die-hard fan|
+
+  Users should be ordered from the highest score to the lowest.
 
   Example result:
 
   ```csv
-  rank,artist_id,user_id,country,score
-  1,123,987,"TN",0.91
-  2,123,654,"FR",0.90
-  3,123,321,"TN",0.74
+  artist_id,user_id,country,score
+  123,987,"TN",0.91
+  123,654,"FR",0.90
+  123,321,"TN",0.74
   ```
 
 ## Expected deliverables
@@ -127,7 +128,8 @@ Not required but nice to have:
   with the [PEP8](https://www.python.org/dev/peps/pep-0008/).
 * Unit tests can be added with notes about how to run them.
 * Authentication support can be added to Fanbase web API.
-* Improvements to the tools can be proposed in the `NOTES.md` file.
+* Improvements to the specification or the implementation of 
+  the tools can be proposed in the `NOTES.md` file.
 
 ## Troubleshooting
 
