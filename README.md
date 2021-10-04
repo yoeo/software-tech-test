@@ -22,7 +22,7 @@ For legal reasons:
   by Fanbase and TopFans tools. See the `consent` field in the database.
 2. Underage users (<18 years old) information is not displayed by TopFans.
 
-### Technical specifications
+## Technical specifications
 
 * All the programs (Fanbase web API & TopFans script) should run inside
   [Docker containers](https://docs.docker.com/compose/).
@@ -31,7 +31,7 @@ For legal reasons:
 * A [MariaDB](https://mariadb.org/) database container is provided
   with the user data. See [database/](database/) directory.
 
-#### Fanbase tool specifications
+### Fanbase tool specifications
 
 * Fanbase should be built as follows:
 
